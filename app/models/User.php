@@ -1,6 +1,20 @@
 <?php
+/*
+Explanation:
+
+errors: An array to store validation errors.
+table: Specifies the database table associated with this model, users.
+allowedCols: Defines the columns that are allowed for insert and update operations.
+validate($data): Validates user input data for registration. It checks for:
+Required fields (firstname, lastname, password, terms).
+Valid email format and uniqueness.
+Matching passwords.
+Acceptance of terms and conditions.
+Populates the errors array if validation fails and returns true if validation passes.
+*/
 
 class User extends Model{
+
     public $errors= [];
     protected $table = "users";
 

@@ -1,4 +1,12 @@
 <?php
+/*
+Explanation:
+
+This class manages database connections and queries.
+The connect method establishes a PDO connection to the database.
+The query method prepares and executes SQL queries, fetching results as objects or associative arrays.
+The create_tables method creates the users table if it doesn’t exist, defining the table structure.
+*/
 class Database
 {
     private function connect()

@@ -1,8 +1,21 @@
+
+
 <?php
+/* 
+Explanation:
+
+This class is responsible for handling the URL routing.
+It determines the controller and method to be called based on the URL.
+If no specific controller or method is found, it defaults to _404 and index.
+It sanitizes the URL to prevent security issues and then splits it into parts to extract the controller and method.
+It checks if the controller file exists and includes it. If the file doesn’t exist, it defaults to the 404 controller.
+It creates an instance of the controller and calls the specified method with any additional URL parameters.
+*/
 class App
 {
     protected $controller = '_404';
     protected $method = 'index';
+    public static $page= '_404'; 
     function __construct()
     {
         $arr = $this->getURL();
@@ -11,6 +24,7 @@ class App
         if (file_exists($filename)) {
             require $filename;
             $this->controller = $arr[0];
+            self::$page = $arr[0];
             unset($arr[0]);
         } else {
             require "../app/controllers/" . $this->controller . ".php";

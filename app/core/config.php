@@ -1,4 +1,11 @@
 <?php
+/*
+Explanation:
+
+This file defines constants for the application name and description.
+It sets database configuration constants based on the server environment (localhost or production).
+The root path is defined to facilitate URL generation.
+*/
 //app info
 define('APPNAME', 'Udemy');
 define('APPDESC', 'Free and paid tutorials');
